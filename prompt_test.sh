@@ -1,6 +1,6 @@
 #! /bin/sh
 runnum=$1;
-if [ -z "$runnum"]
+if [ -z "$runnum" ]
 then
     echo "Run Number is empty";
     exit 1;
