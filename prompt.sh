@@ -27,6 +27,9 @@ timenow=$(date +"%Y-%m%d-%H%M");
 # cp ./japanOutput/summary_$runnum.txt \
 #     ./SummaryText/summary_prompt_pass1_$runnum.txt;
 
+# Postpan regression to the first pass results
+./auto_postpan.sh $runnum;
+
 #JAPAN Second Pass
 timenow=$(date +"%Y-%m%d-%H%M");
 
