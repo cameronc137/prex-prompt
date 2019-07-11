@@ -17,8 +17,8 @@ void CheckBPM(){
 
   TCanvas *cbpm = new TCanvas("cbpm","cbpm",2400,1200);
   cbpm->Divide(4,2);
-  TCanvas *cwiresum = new TCanvas("cwiresum","cwiresum",2400,600);
-  cwiresum->Divide(4,1);
+  TCanvas *cwiresum = new TCanvas("cwiresum","cwiresum",2400,1200);
+  cwiresum->Divide(4,2);
 
   TString evt_cut = "ErrorFlag==0";
   TString mul_cut = "ErrorFlag==0";  
@@ -126,6 +126,23 @@ void CheckBPM(){
     st->SetY1NDC(0.9);
     st->SetY2NDC(0.7);
     
+    cwiresum->cd(5);
+    evt_tree->Draw(Form("%sXP.hw_sum_raw/%sXP.num_samples*76.29e-6:Entry$",
+			vBPM[ibpm],vBPM[ibpm]),
+		   "","l");
+    cwiresum->cd(6);
+    evt_tree->Draw(Form("%sXM.hw_sum_raw/%sXM.num_samples*76.29e-6:Entry$",
+			vBPM[ibpm],vBPM[ibpm]),
+		   "","l");
+    cwiresum->cd(7);
+    evt_tree->Draw(Form("%sYP.hw_sum_raw/%sYP.num_samples*76.29e-6:Entry$",
+			vBPM[ibpm],vBPM[ibpm]),
+		   "","l");
+    cwiresum->cd(8);
+    evt_tree->Draw(Form("%sYM.hw_sum_raw/%sYM.num_samples*76.29e-6:Entry$",
+			vBPM[ibpm],vBPM[ibpm]),
+		   "","l");
+
     plot_title  = Form("run%s_%s_XY_Awiresum.png",
 		       run_seg.Data(),vBPM[ibpm]);
     label = new TText(0.0,0.005,plot_title);     
