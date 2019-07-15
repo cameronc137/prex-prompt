@@ -24,14 +24,12 @@ do
     	-f $rootfile \
     	-c ./postpan/conf/combo_reg.conf ;
 
-    root -b -q './postpan/scripts/GetBeamNoise.C("'$run_seg'","prexPrompt")'
+    # if [ ! -d ./hallaweb_online/summary/run$run_seg ]; then
+    # 	mkdir ./hallaweb_online/summary/run$run_seg;
+    # fi
 
-    if [ ! -d ./hallaweb_online/summary/run$run_seg ]; then
-    	mkdir ./hallaweb_online/summary/run$run_seg;
-    fi
-
-    cp  ./results/prexPrompt_$run_seg\_postpan_summary.txt \
-    	./hallaweb_online/summary/run$run_seg/;
+    # cp  ./results/prexPrompt_$run_seg\_postpan_summary.txt \
+    # 	./hallaweb_online/summary/run$run_seg/;
 
 done
 
