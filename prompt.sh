@@ -5,6 +5,7 @@ then
     echo "Run Number is empty";
     exit 1;
 fi
+
 #  Remove the LRB output files if they exist
 shopt -s extglob
 # find split file
@@ -22,6 +23,7 @@ timenow=$(date +"%Y-%m%d-%H%M");
 
 ./qwparity -r $runnum -c prex_prompt.conf \
     --rootfile-stem prexPrompt_pass1_ \
+    --QwLog.loglevel-file 2 \
     --QwLog.logfile ./LogFiles/QwLog_run$runnum\_prompt_pass1_$timenow.txt ;
 
 # cp ./japanOutput/summary_$runnum.txt \
@@ -35,6 +37,7 @@ timenow=$(date +"%Y-%m%d-%H%M");
 
 ./qwparity -r $runnum -c prex_prompt.conf \
     --rootfile-stem prexPrompt_pass2_ \
+    --QwLog.loglevel-file 2 \
     --QwLog.logfile ./LogFiles/QwLog_run$runnum\_prompt_pass2_$timenow.txt ;
 
 
