@@ -29,7 +29,7 @@ do
     cp  ./SummaryPlots/run$run_seg/* \
 	./hallaweb_online/summary/run$run_seg/;
 
-
+    # copying prompt summary
     cp ./japanOutput/summary_*$runnum*.txt \
 	./SummaryText/
 
@@ -38,11 +38,15 @@ do
 
     cp  ./SummaryText/summary_$level_$run_seg.txt \
 	./hallaweb_online/summary/run$run_seg/ ;
+    # copying postpan summary
+    cp  ./results/prexPrompt_$run_seg\_postpan_summary.txt \
+    	./hallaweb_online/summary/run$run_seg/;
 
     #Change user group and permission
     chgrp -R a-parity ./hallaweb_online/summary/run$run_seg;
     chmod -R 755 ./hallaweb_online/summary/run$run_seg;    
-
+    
+    bash 	./hallaweb_online/summary/sort.sh ;
 done
 
 
